@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"localhost:4200"})
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 public class ComponenteRestController {
@@ -24,6 +24,11 @@ public class ComponenteRestController {
     @GetMapping("/componentes/{id}")
     public Componente show(@PathVariable Integer id) {
         return componenteService.findById(id);
+    }
+
+    @GetMapping("/componentes/{categoriaId}")
+    public List<Componente> showCategoria(@PathVariable Integer categoriaId) {
+        return componenteService.findByCategoriaId(categoriaId);
     }
 
     @PostMapping("/componentes")

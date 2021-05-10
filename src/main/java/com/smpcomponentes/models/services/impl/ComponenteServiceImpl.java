@@ -22,6 +22,12 @@ public class ComponenteServiceImpl implements IComponenteService {
     }
 
     @Override
+    @Transactional
+    public List<Componente> findByCategoriaId(Integer categoriaId) {
+        return componenteDao.findByCategoriaId(categoriaId);
+    }
+
+    @Override
     public Componente findById(Integer id) {
         return componenteDao.findById(id).orElse(null);
     }

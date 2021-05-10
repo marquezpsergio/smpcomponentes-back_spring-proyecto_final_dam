@@ -8,6 +8,8 @@ public interface IComponenteService {
 
     List<Componente> findAll();
 
+    List<Componente> findByCategoriaId(Integer categoriaId);
+
     Componente findById(Integer id);
 
     Componente save(Componente componente);
