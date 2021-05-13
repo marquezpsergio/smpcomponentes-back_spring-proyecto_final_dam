@@ -16,29 +16,29 @@ public class LineaOrdenadorRestController {
     @Autowired
     private ILineaOrdenadorService lineaOrdenadorService;
 
-    @GetMapping("/lineas_ordenadores")
+    @GetMapping("/lineas-ordenadores")
     public List<LineaOrdenador> index() {
         return lineaOrdenadorService.findAll();
     }
 
-    @GetMapping("/lineas_ordenadores/{id}")
+    @GetMapping("/lineas-ordenadores/{id}")
     public LineaOrdenador show(@PathVariable Integer id) {
         return lineaOrdenadorService.findById(id);
     }
 
-    @PostMapping("/lineas_ordenadores")
+    @PostMapping("/lineas-ordenadores")
     @ResponseStatus(HttpStatus.CREATED)
     public LineaOrdenador create(@RequestBody LineaOrdenador lineaOrdenador) {
         return lineaOrdenadorService.save(lineaOrdenador);
     }
 
-    @PutMapping("/lineas_ordenadores/{id}")
+    @PutMapping("/lineas-ordenadores/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public LineaOrdenador update(@RequestBody LineaOrdenador lineaOrdenador, @PathVariable Integer id) {
         return lineaOrdenadorService.save(lineaOrdenador);
     }
 
-    @DeleteMapping("/lineas_ordenadores/{id}")
+    @DeleteMapping("/lineas-ordenadores/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Integer id) {
         lineaOrdenadorService.delete(id);
