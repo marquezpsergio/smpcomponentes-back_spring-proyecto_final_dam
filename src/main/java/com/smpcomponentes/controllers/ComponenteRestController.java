@@ -26,7 +26,7 @@ public class ComponenteRestController {
         return componenteService.findById(id);
     }
 
-    @GetMapping("/componentes_cat/{categoriaId}")
+    @GetMapping("/componentes/categoria/{categoriaId}")
     public List<Componente> showCategoria(@PathVariable Integer categoriaId) {
         return componenteService.findByCategoriaId(categoriaId);
     }
