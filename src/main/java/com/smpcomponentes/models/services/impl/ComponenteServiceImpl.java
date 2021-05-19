@@ -28,6 +28,12 @@ public class ComponenteServiceImpl implements IComponenteService {
     }
 
     @Override
+    @Transactional
+    public List<Componente> findByFabricanteId(Integer fabricanteId) {
+        return componenteDao.findByFabricanteId(fabricanteId);
+    }
+
+    @Override
     public Componente findById(Integer id) {
         return componenteDao.findById(id).orElse(null);
     }

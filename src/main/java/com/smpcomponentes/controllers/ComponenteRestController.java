@@ -31,6 +31,11 @@ public class ComponenteRestController {
         return componenteService.findByCategoriaId(categoriaId);
     }
 
+    @GetMapping("/componentes/fabricante/{fabricanteId}")
+    public List<Componente> showFabricante(@PathVariable Integer fabricanteId) {
+        return componenteService.findByFabricanteId(fabricanteId);
+    }
+
     @PostMapping("/componentes")
     @ResponseStatus(HttpStatus.CREATED)
     public Componente create(@RequestBody Componente componente) {

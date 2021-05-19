@@ -10,6 +10,8 @@ public interface IComponenteService {
 
     List<Componente> findByCategoriaId(Integer categoriaId);
 
+    List<Componente> findByFabricanteId(Integer categoriaId);
+
     Componente findById(Integer id);
 
     Componente save(Componente componente);
