@@ -11,9 +11,11 @@ public class LineaOrdenador implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Ordenador ordenador;
 
+    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Componente componente;
 

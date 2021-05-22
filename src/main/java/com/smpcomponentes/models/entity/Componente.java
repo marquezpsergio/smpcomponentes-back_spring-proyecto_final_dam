@@ -11,11 +11,14 @@ public class Componente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(nullable = false)
     private String nombre;
 
+    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
     private Fabricante fabricante;
 
+    @Column(nullable = false)
     @ManyToOne(fetch = FetchType.EAGER)
     private Categoria categoria;
 
