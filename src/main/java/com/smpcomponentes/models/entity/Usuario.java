@@ -15,21 +15,21 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotEmpty
-    @Email
+    @NotEmpty(message = "no puede estar vacío")
+    @Email(message = "no es una dirección de correo bien formada")
     @Column(nullable = false, unique = true)
     private String email;
 
-    @NotEmpty
-    @Size(min = 4)
+    @NotEmpty(message = "no puede estar vacío")
+    @Size(min = 4, message = "debe tener al menos 4 caracteres")
     @Column(nullable = false, unique = true)
     private String usuario;
 
-    @NotEmpty
-    @Size(min = 6)
+    @NotEmpty(message = "no puede estar vacío")
+    @Size(min = 6, message = "debe tener al menos 6 caracteres")
     private String password;
 
-    @NotEmpty
+    @NotEmpty(message = "no puede estar vacío")
     @ManyToOne(fetch = FetchType.LAZY)
     private Rol rol;
 

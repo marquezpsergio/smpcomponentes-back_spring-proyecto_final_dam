@@ -17,13 +17,13 @@ public class Ordenador implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotEmpty
+    @NotEmpty(message = "no puede estar vacío")
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
 
-    @NotEmpty
-    @Min(0)
-    @Max(99999)
+    @NotEmpty(message = "no puede estar vacío")
+    @Min(value = 0, message = "debe ser como mínimo 0")
+    @Max(value = 99999, message = "debe ser como máximo 99999")
     @Column(name = "precio_total")
     private Double precioTotal;
 

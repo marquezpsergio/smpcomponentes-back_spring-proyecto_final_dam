@@ -12,15 +12,15 @@ public class LineaOrdenador implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotEmpty
+    @NotEmpty(message = "no puede estar vacío")
     @ManyToOne(fetch = FetchType.LAZY)
     private Ordenador ordenador;
 
-    @NotEmpty
+    @NotEmpty(message = "no puede estar vacío")
     @ManyToOne(fetch = FetchType.LAZY)
     private Componente componente;
 
-    @NotEmpty
+    @NotEmpty(message = "no puede estar vacío")
     @Column(name = "precio_venta")
     private Double precioVenta;
 

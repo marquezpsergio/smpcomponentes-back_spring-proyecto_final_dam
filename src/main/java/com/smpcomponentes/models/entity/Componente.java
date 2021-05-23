@@ -15,33 +15,33 @@ public class Componente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotEmpty
-    @Size(min = 3)
+    @NotEmpty(message = "no puede estar vacío")
+    @Size(min = 3, message = "debe tener al menos 3 caracteres")
     @Column(nullable = false)
     private String nombre;
 
-    @NotEmpty
+    @NotEmpty(message = "no puede estar vacío")
     @ManyToOne(fetch = FetchType.EAGER)
     private Fabricante fabricante;
 
-    @NotEmpty
+    @NotEmpty(message = "no puede estar vacío")
     @ManyToOne(fetch = FetchType.EAGER)
     private Categoria categoria;
 
-    @NotEmpty
-    @Min(0)
-    @Max(99999)
+    @NotEmpty(message = "no puede estar vacío")
+    @Min(value = 0, message = "debe ser como mínimo 0")
+    @Max(value = 99999, message = "debe ser como máximo 99999")
     private Double precio;
 
-    @NotEmpty
+    @NotEmpty(message = "no puede estar vacío")
     private String imagen;
 
-    @Min(0)
-    @Max(99999)
+    @Min(value = 0, message = "debe ser como mínimo 0")
+    @Max(value = 99999, message = "debe ser como máximo 99999")
     @Column(name = "unidades_disponibles")
     private Integer unidadesDisponibles;
 
-    @NotEmpty
+    @NotEmpty(message = "no puede estar vacío")
     private String url;
 
     public Componente() {
