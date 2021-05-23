@@ -1,6 +1,10 @@
 package com.smpcomponentes.models.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -11,22 +15,33 @@ public class Componente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty
+    @Size(min = 3)
     @Column(nullable = false)
     private String nombre;
 
+    @NotEmpty
     @ManyToOne(fetch = FetchType.EAGER)
     private Fabricante fabricante;
 
+    @NotEmpty
     @ManyToOne(fetch = FetchType.EAGER)
     private Categoria categoria;
 
+    @NotEmpty
+    @Min(0)
+    @Max(99999)
     private Double precio;
 
+    @NotEmpty
     private String imagen;
 
+    @Min(0)
+    @Max(99999)
     @Column(name = "unidades_disponibles")
     private Integer unidadesDisponibles;
 
+    @NotEmpty
     private String url;
 
     public Componente() {

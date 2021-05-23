@@ -1,6 +1,7 @@
 package com.smpcomponentes.models.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Entity
@@ -11,12 +12,15 @@ public class LineaOrdenador implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty
     @ManyToOne(fetch = FetchType.LAZY)
     private Ordenador ordenador;
 
+    @NotEmpty
     @ManyToOne(fetch = FetchType.LAZY)
     private Componente componente;
 
+    @NotEmpty
     @Column(name = "precio_venta")
     private Double precioVenta;
 

@@ -1,6 +1,9 @@
 package com.smpcomponentes.models.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,9 +17,13 @@ public class Ordenador implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty
     @ManyToOne(fetch = FetchType.LAZY)
     private Usuario usuario;
 
+    @NotEmpty
+    @Min(0)
+    @Max(99999)
     @Column(name = "precio_total")
     private Double precioTotal;
 
