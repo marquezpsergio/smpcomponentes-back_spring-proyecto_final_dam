@@ -34,7 +34,6 @@ public class UsuarioRestController {
     }
 
     @PostMapping("/usuarios")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@Valid @RequestBody Usuario usuario, BindingResult result) {
 
         Usuario usuarioNew;

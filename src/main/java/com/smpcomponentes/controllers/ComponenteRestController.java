@@ -62,7 +62,6 @@ public class ComponenteRestController {
     }
 
     @PostMapping("/componentes")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@Valid @RequestBody Componente componente, BindingResult result) {
 
         Componente componenteNew;
@@ -93,7 +92,6 @@ public class ComponenteRestController {
     }
 
     @PutMapping("/componentes/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> update(@Valid @RequestBody Componente componente, BindingResult result, @PathVariable Integer id) {
 
         Componente componenteActual = componenteService.findById(id);
@@ -131,7 +129,6 @@ public class ComponenteRestController {
     }
 
     @DeleteMapping("/componentes/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<?> delete(@PathVariable Integer id) {
         Map<String, Object> response = new HashMap<>();
 

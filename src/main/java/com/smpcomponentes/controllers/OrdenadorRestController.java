@@ -34,7 +34,6 @@ public class OrdenadorRestController {
     }
 
     @PostMapping("/ordenadores")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@Valid @RequestBody Ordenador ordenador, BindingResult result) {
 
         Ordenador ordenadorNew;

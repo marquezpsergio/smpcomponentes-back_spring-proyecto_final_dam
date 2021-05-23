@@ -34,7 +34,6 @@ public class LineaOrdenadorRestController {
     }
 
     @PostMapping("/lineas-ordenadores")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> create(@Valid @RequestBody LineaOrdenador lineaOrdenador, BindingResult result) {
 
         LineaOrdenador lineaOrdenadorNew;
