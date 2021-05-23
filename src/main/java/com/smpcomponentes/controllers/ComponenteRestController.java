@@ -111,7 +111,7 @@ public class ComponenteRestController {
         }
 
         if (componenteActual == null) {
-            response.put("mensaje", "Error: No se pudo editar el cliente con ID '".concat(id.toString().concat("', no existe en la base de datos!")));
+            response.put("mensaje", "Error: No se pudo editar el componente con ID '".concat(id.toString().concat("', no existe en la base de datos!")));
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
