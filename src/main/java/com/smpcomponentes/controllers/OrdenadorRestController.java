@@ -57,7 +57,7 @@ public class OrdenadorRestController {
             return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        response.put("mensaje", "EL ordenador ha sido creada con éxito!");
+        response.put("mensaje", "El ordenador ha sido creado con éxito!");
         response.put("ordenador", ordenadorNew);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
 
