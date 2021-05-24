@@ -38,9 +38,9 @@ public class Ordenador implements Serializable {
         lineasOrdenadores = new ArrayList<>();
     }
 
-    public Ordenador(Usuario usuario, Double precioTotal) {
+    public Ordenador(Integer id, Usuario usuario, Double precioTotal) {
         lineasOrdenadores = new ArrayList<>();
-        this.id = 0;
+        this.id = id;
         this.usuario = usuario;
         this.precioTotal = precioTotal;
     }

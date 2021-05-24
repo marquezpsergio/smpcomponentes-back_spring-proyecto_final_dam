@@ -47,8 +47,8 @@ public class Componente implements Serializable {
     public Componente() {
     }
 
-    public Componente(String nombre, Fabricante fabricante, Categoria categoria, Double precio) {
-        this.id = 0;
+    public Componente(Integer id, String nombre, Fabricante fabricante, Categoria categoria, Double precio) {
+        this.id = id;
         this.nombre = nombre;
         this.fabricante = fabricante;
         this.categoria = categoria;

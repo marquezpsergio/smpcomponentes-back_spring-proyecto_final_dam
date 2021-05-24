@@ -27,8 +27,8 @@ public class LineaOrdenador implements Serializable {
     public LineaOrdenador() {
     }
 
-    public LineaOrdenador(Ordenador ordenador, Componente componente, Double precioVenta) {
-        this.id = 0;
+    public LineaOrdenador(Integer id, Ordenador ordenador, Componente componente, Double precioVenta) {
+        this.id = id;
         this.ordenador = ordenador;
         this.componente = componente;
         this.precioVenta = precioVenta;

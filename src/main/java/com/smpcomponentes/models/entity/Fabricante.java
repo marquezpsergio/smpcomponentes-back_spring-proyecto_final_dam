@@ -15,8 +15,8 @@ public class Fabricante implements Serializable {
     public Fabricante() {
     }
 
-    public Fabricante(String nombre) {
-        this.id = 0;
+    public Fabricante(Integer id, String nombre) {
+        this.id = id;
         this.nombre = nombre;
     }
 
