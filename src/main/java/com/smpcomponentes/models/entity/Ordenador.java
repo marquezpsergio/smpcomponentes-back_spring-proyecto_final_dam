@@ -18,7 +18,7 @@ public class Ordenador implements Serializable {
     private Integer id;
 
     @NotEmpty(message = "no puede estar vacío")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Usuario usuario;
 
     @NotEmpty(message = "no puede estar vacío")
@@ -31,7 +31,7 @@ public class Ordenador implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaCompra;
 
-    @OneToMany(mappedBy = "ordenador", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ordenador", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<LineaOrdenador> lineasOrdenadores;
 
     public Ordenador() {

@@ -13,11 +13,11 @@ public class LineaOrdenador implements Serializable {
     private Integer id;
 
     @NotEmpty(message = "no puede estar vacío")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Ordenador ordenador;
 
     @NotEmpty(message = "no puede estar vacío")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Componente componente;
 
     @NotEmpty(message = "no puede estar vacío")

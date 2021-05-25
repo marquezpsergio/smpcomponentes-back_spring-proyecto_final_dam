@@ -30,7 +30,7 @@ public class Usuario implements Serializable {
     private String password;
 
     @NotEmpty(message = "no puede estar vacío")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Rol rol;
 
     @Column(name = "fecha_registro")
