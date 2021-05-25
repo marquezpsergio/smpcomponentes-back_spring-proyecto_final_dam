@@ -8,6 +8,8 @@ public interface IOrdenadorService {
 
     List<Ordenador> findAll();
 
+    List<Ordenador> findAllLimit();
+
     Ordenador findById(Integer id);
 
     Ordenador save(Ordenador ordenador);

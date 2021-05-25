@@ -22,6 +22,12 @@ public class OrdenadorServiceImpl implements IOrdenadorService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<Ordenador> findAllLimit() {
+        return ordenadorDao.findAllLimit();
+    }
+
+    @Override
     public Ordenador findById(Integer id) {
         return ordenadorDao.findById(id).orElse(null);
     }
@@ -35,4 +41,6 @@ public class OrdenadorServiceImpl implements IOrdenadorService {
     public void delete(Integer id) {
         ordenadorDao.deleteById(id);
     }
+
+
 }

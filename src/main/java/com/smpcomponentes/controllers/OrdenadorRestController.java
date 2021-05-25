@@ -25,8 +25,9 @@ public class OrdenadorRestController {
 
     @GetMapping("/ordenadores")
     public List<Ordenador> index() {
-        return ordenadorService.findAll();
+        return ordenadorService.findAllLimit();
     }
+
 
     @GetMapping("/ordenadores/{id}")
     public Ordenador show(@PathVariable Integer id) {
