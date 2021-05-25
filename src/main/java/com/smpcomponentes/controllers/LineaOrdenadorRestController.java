@@ -28,7 +28,7 @@ public class LineaOrdenadorRestController {
         return lineaOrdenadorService.findAll();
     }
 
-    @GetMapping("/lineas-ordenador/{ordenadorId}")
+    @GetMapping("/lineas-ordenadores/ordenador/{ordenadorId}")
     public List<LineaOrdenador> showLineasOrdenador(@PathVariable Integer ordenadorId) {
         return lineaOrdenadorService.findByOrdenadorId(ordenadorId);
     }
