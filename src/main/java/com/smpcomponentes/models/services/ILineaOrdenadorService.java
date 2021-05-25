@@ -8,6 +8,8 @@ public interface ILineaOrdenadorService {
 
     List<LineaOrdenador> findAll();
 
+    List<LineaOrdenador> findByOrdenadorId(Integer ordenadorId);
+
     LineaOrdenador findById(Integer id);
 
     LineaOrdenador save(LineaOrdenador lineaOrdenador);

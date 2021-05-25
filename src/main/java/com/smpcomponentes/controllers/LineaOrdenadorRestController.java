@@ -28,6 +28,11 @@ public class LineaOrdenadorRestController {
         return lineaOrdenadorService.findAll();
     }
 
+    @GetMapping("/lineas-ordenador/{ordenadorId}")
+    public List<LineaOrdenador> showLineasOrdenador(@PathVariable Integer ordenadorId) {
+        return lineaOrdenadorService.findByOrdenadorId(ordenadorId);
+    }
+
     @GetMapping("/lineas-ordenadores/{id}")
     public LineaOrdenador show(@PathVariable Integer id) {
         return lineaOrdenadorService.findById(id);

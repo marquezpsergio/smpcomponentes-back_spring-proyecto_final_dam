@@ -22,6 +22,12 @@ public class LineaOrdenadorServiceImpl implements ILineaOrdenadorService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<LineaOrdenador> findByOrdenadorId(Integer ordenadorId) {
+        return lineaOrdenadorDao.findByOrdenadorId(ordenadorId);
+    }
+
+    @Override
     public LineaOrdenador findById(Integer id) {
         return lineaOrdenadorDao.findById(id).orElse(null);
     }
