@@ -31,7 +31,7 @@ public class Ordenador implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaCompra;
 
-    @OneToMany(mappedBy = "ordenador", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ordenador")
     private List<LineaOrdenador> lineasOrdenadores;
 
     public Ordenador() {

@@ -1,5 +1,7 @@
 package com.smpcomponentes.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
@@ -12,8 +14,10 @@ public class LineaOrdenador implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JsonIgnore
     @NotEmpty(message = "no puede estar vacío")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ordenador_id")
     private Ordenador ordenador;
 
     @NotEmpty(message = "no puede estar vacío")
