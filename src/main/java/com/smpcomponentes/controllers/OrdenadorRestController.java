@@ -30,8 +30,26 @@ public class OrdenadorRestController {
 
 
     @GetMapping("/ordenadores/{id}")
-    public Ordenador show(@PathVariable Integer id) {
-        return ordenadorService.findById(id);
+    public ResponseEntity<?> show(@PathVariable Integer id) {
+
+        Ordenador ordenador;
+        Map<String, Object> response = new HashMap<>();
+
+        try {
+            ordenador = ordenadorService.findById(id);
+        } catch (DataAccessException e) {
+            response.put("mensaje", "Error al realizar la consulta en la base de datos!");
+            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+        if (ordenador == null) {
+            response.put("mensaje", "El ordenador con ID: ".concat(id.toString().concat(" no existe en la base de datos!")));
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(ordenador, HttpStatus.OK);
     }
 
     @PostMapping("/ordenadores")
