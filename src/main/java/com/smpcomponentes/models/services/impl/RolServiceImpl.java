@@ -27,6 +27,11 @@ public class RolServiceImpl implements IRolService {
     }
 
     @Override
+    public Rol findByNombre(String nombre) {
+        return rolDao.findByNombre(nombre);
+    }
+
+    @Override
     public Rol save(Rol rol) {
         return rolDao.save(rol);
     }

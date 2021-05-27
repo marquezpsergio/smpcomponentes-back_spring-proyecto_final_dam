@@ -10,6 +10,8 @@ public interface IRolService {
 
     Rol findById(Integer id);
 
+    Rol findByNombre(String nombre);
+
     Rol save(Rol rol);
 
     void delete(Integer id);

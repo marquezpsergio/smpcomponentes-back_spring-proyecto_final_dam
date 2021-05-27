@@ -1,5 +1,7 @@
 package com.smpcomponentes.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -29,6 +31,7 @@ public class Usuario implements Serializable {
     @Size(min = 6, message = "debe tener al menos 6 caracteres")
     private String password;
 
+    @JsonIgnore
     @NotEmpty(message = "no puede estar vacío")
     @ManyToOne(fetch = FetchType.EAGER)
     private Rol rol;
@@ -40,15 +43,13 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(Integer id, String email, String usuario, String password) {
-        this.id = id;
+    public Usuario(String email, String usuario, String password) {
         this.email = email;
         this.usuario = usuario;
         this.password = password;
     }
 
-    public Usuario(Integer id, String email, String usuario, String password, Rol rol) {
-        this.id = id;
+    public Usuario(String email, String usuario, String password, Rol rol) {
         this.email = email;
         this.usuario = usuario;
         this.password = password;

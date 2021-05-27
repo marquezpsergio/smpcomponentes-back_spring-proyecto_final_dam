@@ -22,8 +22,27 @@ public class UsuarioServiceImpl implements IUsuarioService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Usuario findById(Integer id) {
         return usuarioDao.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Usuario findByUsuario(String usuario) {
+        return usuarioDao.findByUsuario(usuario);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean existsByUsuario(String usuario) {
+        return usuarioDao.existsByUsuario(usuario) > 0;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public boolean existsByEmail(String email) {
+        return usuarioDao.existsByEmail(email) > 0;
     }
 
     @Override

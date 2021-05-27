@@ -10,6 +10,12 @@ public interface IUsuarioService {
 
     Usuario findById(Integer id);
 
+    Usuario findByUsuario(String usuario);
+
+    boolean existsByUsuario(String usuario);
+
+    boolean existsByEmail(String email);
+
     Usuario save(Usuario usuario);
 
     void delete(Integer id);

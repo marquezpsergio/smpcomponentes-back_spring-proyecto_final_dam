@@ -1,6 +1,7 @@
 package com.smpcomponentes.models.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "roles")
@@ -9,13 +10,14 @@ public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotEmpty(message = "no puede estar vacío")
     private String nombre;
 
     public Rol() {
     }
 
-    public Rol(Integer id, String nombre) {
-        this.id = id;
+    public Rol(String nombre) {
         this.nombre = nombre;
     }
 

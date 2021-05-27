@@ -33,6 +33,40 @@ public class UsuarioRestController {
         return usuarioService.findById(id);
     }
 
+    @GetMapping("/usuarios/usuario/{user}")
+    public ResponseEntity<?> showByUsuario(@PathVariable String user) {
+
+        Usuario usuario;
+        Map<String, Object> response = new HashMap<>();
+
+        try {
+            usuario = usuarioService.findByUsuario(user);
+        } catch (DataAccessException e) {
+            response.put("mensaje", "Error al realizar la consulta en la base de datos!");
+            response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+        if (usuario == null) {
+            response.put("mensaje", "El usuario '".concat(usuario.toString().concat("' no existe en la base de datos!")));
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(usuario, HttpStatus.OK);
+    }
+
+    @GetMapping("/usuarios/usuario-exist/{user}")
+    public boolean existsByUsuario(@PathVariable String user) {
+        return usuarioService.existsByUsuario(user);
+    }
+
+    @GetMapping("/usuarios/email-exist/{email}")
+    public boolean existsByEmail(@PathVariable String email) {
+        return usuarioService.existsByEmail(email);
+    }
+
+
     @PostMapping("/usuarios")
     public ResponseEntity<?> create(@Valid @RequestBody Usuario usuario, BindingResult result) {
 
