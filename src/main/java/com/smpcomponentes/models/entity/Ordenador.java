@@ -32,14 +32,14 @@ public class Ordenador implements Serializable {
     private Date fechaCompra;
 
     @OneToMany(mappedBy = "ordenador")
-    private List<LineaOrdenador> lineasOrdenadores;
+    private List<LineaOrdenador> lineasOrdenador;
 
     public Ordenador() {
-        lineasOrdenadores = new ArrayList<>();
+        lineasOrdenador = new ArrayList<>();
     }
 
     public Ordenador(Integer id, Usuario usuario, Double precioTotal) {
-        lineasOrdenadores = new ArrayList<>();
+        lineasOrdenador = new ArrayList<>();
         this.id = id;
         this.usuario = usuario;
         this.precioTotal = precioTotal;
@@ -82,16 +82,16 @@ public class Ordenador implements Serializable {
         this.fechaCompra = fechaCompra;
     }
 
-    public List<LineaOrdenador> getLineasOrdenadores() {
-        return lineasOrdenadores;
+    public List<LineaOrdenador> getLineasOrdenador() {
+        return lineasOrdenador;
     }
 
-    public void setLineasOrdenadores(List<LineaOrdenador> lineasOrdenadores) {
-        this.lineasOrdenadores = lineasOrdenadores;
+    public void setLineasOrdenador(List<LineaOrdenador> lineasOrdenador) {
+        this.lineasOrdenador = lineasOrdenador;
     }
 
     public void addLineaOrdenador(LineaOrdenador lineaOrdenador) {
-        lineasOrdenadores.add(lineaOrdenador);
+        lineasOrdenador.add(lineaOrdenador);
     }
 
 }
