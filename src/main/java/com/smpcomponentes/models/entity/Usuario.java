@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
     @NotEmpty(message = "no puede estar vacío")
     @Size(min = 4, message = "debe tener al menos 4 caracteres")
     @Column(nullable = false, unique = true)
-    private String usuario;
+    private String nombreUsuario;
 
     @NotEmpty(message = "no puede estar vacío")
     @Size(min = 6, message = "debe tener al menos 6 caracteres")
@@ -40,15 +40,15 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(String email, String usuario, String password) {
+    public Usuario(String email, String nombreUsuario, String password) {
         this.email = email;
-        this.usuario = usuario;
+        this.nombreUsuario = nombreUsuario;
         this.password = password;
     }
 
-    public Usuario(String email, String usuario, String password, Rol rol) {
+    public Usuario(String email, String nombreUsuario, String password, Rol rol) {
         this.email = email;
-        this.usuario = usuario;
+        this.nombreUsuario = nombreUsuario;
         this.password = password;
         this.rol = rol;
     }
@@ -74,12 +74,12 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getPassword() {

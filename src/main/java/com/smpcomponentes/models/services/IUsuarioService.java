@@ -10,9 +10,9 @@ public interface IUsuarioService {
 
     Usuario findById(Integer id);
 
-    Usuario findByUsuario(String usuario);
+    Usuario findByNombreUsuario(String nombreUsuario);
 
-    boolean existsByUsuario(String usuario);
+    boolean existsByNombreUsuario(String usuario);
 
     boolean existsByEmail(String email);
 

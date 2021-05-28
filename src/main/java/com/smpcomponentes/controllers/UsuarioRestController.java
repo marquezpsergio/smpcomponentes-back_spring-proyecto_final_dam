@@ -34,14 +34,14 @@ public class UsuarioRestController {
         return usuarioService.findById(id);
     }
 
-    @GetMapping("/usuarios/usuario/{user}")
-    public ResponseEntity<?> showByUsuario(@PathVariable String user) {
+    @GetMapping("/usuarios/usuario/{nombreUsuario}")
+    public ResponseEntity<?> showByNombreUsuario(@PathVariable String nombreUsuario) {
 
         Usuario usuario;
         Map<String, Object> response = new HashMap<>();
 
         try {
-            usuario = usuarioService.findByUsuario(user);
+            usuario = usuarioService.findByNombreUsuario(nombreUsuario);
         } catch (DataAccessException e) {
             response.put("mensaje", "Error al realizar la consulta en la base de datos!");
             response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
@@ -50,7 +50,7 @@ public class UsuarioRestController {
 
 
         if (usuario == null) {
-            response.put("mensaje", "El usuario '".concat(usuario.toString().concat("' no existe en la base de datos!")));
+            response.put("mensaje", "El usuario '".concat(nombreUsuario.concat("' no existe en la base de datos!")));
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
 
@@ -58,8 +58,8 @@ public class UsuarioRestController {
     }
 
     @GetMapping("/usuarios/usuario-exist/{user}")
-    public boolean existsByUsuario(@PathVariable String user) {
-        return usuarioService.existsByUsuario(user);
+    public boolean existsByNombreUsuario(@PathVariable String user) {
+        return usuarioService.existsByNombreUsuario(user);
     }
 
     @GetMapping("/usuarios/email-exist/{email}")

@@ -5,7 +5,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 INSERT INTO roles (id, nombre) VALUES (1, 'ROLE_ADMIN'), (2, 'ROLE_USER');
 
 -- Populate tabla Usuarios --
-INSERT INTO usuarios (id, email, usuario, password, fecha_registro, rol_id)
+INSERT INTO usuarios (id, email, nombreUsuario, password, fecha_registro, rol_id)
 VALUES (1, 'sergiomp@gmail.com', 'sergiomp', '$2a$10$gi4zxglNX7fB1E91ayYgkejcKwFlvrmyfcqggmoL21wB.zjcCTzAS',
         '2021-05-01 09:45:26', 1),
        (2, 'jesusm@gmail.com', 'jesusmp', '$2a$10$KghgQE6NsAw6i7hUzrqiee3BTWCgE1Y25BYAUnozR4JY2WsDvHDuS',

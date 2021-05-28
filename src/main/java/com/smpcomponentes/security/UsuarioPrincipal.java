@@ -12,19 +12,19 @@ import java.util.List;
 public class UsuarioPrincipal implements UserDetails {
 
     private Integer id;
-    private String usuario;
+    private String nombreUsuario;
     private String email;
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UsuarioPrincipal(String usuario, String password) {
-        this.usuario = usuario;
+    public UsuarioPrincipal(String nombreUsuario, String password) {
+        this.nombreUsuario = nombreUsuario;
         this.password = password;
     }
 
-    public UsuarioPrincipal(Integer id, String usuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UsuarioPrincipal(Integer id, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
-        this.usuario = usuario;
+        this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -33,7 +33,7 @@ public class UsuarioPrincipal implements UserDetails {
     public static UsuarioPrincipal build(Usuario usuario) {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(usuario.getRol().getNombre()));
-        return new UsuarioPrincipal(usuario.getId(), usuario.getUsuario(), usuario.getEmail(), usuario.getPassword(), authorities);
+        return new UsuarioPrincipal(usuario.getId(), usuario.getNombreUsuario(), usuario.getEmail(), usuario.getPassword(), authorities);
     }
 
     public Integer getId() {
@@ -56,7 +56,7 @@ public class UsuarioPrincipal implements UserDetails {
 
     @Override
     public String getUsername() {
-        return usuario;
+        return nombreUsuario;
     }
 
     @Override

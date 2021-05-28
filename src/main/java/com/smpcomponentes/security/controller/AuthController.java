@@ -47,11 +47,11 @@ public class AuthController {
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return new ResponseEntity("Campos vacíos o email inválido", HttpStatus.BAD_REQUEST);
-        if (usuarioService.existsByUsuario(nuevoUsuario.getUsuario()))
+        if (usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario()))
             return new ResponseEntity("El usuario indicado ya existe", HttpStatus.BAD_REQUEST);
         if (usuarioService.existsByEmail(nuevoUsuario.getEmail()))
             return new ResponseEntity("El email indicado ya existe", HttpStatus.BAD_REQUEST);
-        Usuario usuario = new Usuario(nuevoUsuario.getEmail(), nuevoUsuario.getUsuario(),
+        Usuario usuario = new Usuario(nuevoUsuario.getEmail(), nuevoUsuario.getNombreUsuario(),
                 passwordEncoder.encode(nuevoUsuario.getPassword()));
 
         usuario.setRol(rolService.findByNombre("ROLE_USER"));
@@ -64,7 +64,7 @@ public class AuthController {
         if (bindingResult.hasErrors())
             return new ResponseEntity("Campos vacíos o email inválido", HttpStatus.BAD_REQUEST);
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginUsuario.getUsuario(), loginUsuario.getPassword())
+                new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(), loginUsuario.getPassword())
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtProvider.generateToken(authentication);

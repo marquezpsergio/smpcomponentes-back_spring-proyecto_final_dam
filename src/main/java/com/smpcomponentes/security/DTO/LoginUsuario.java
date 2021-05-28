@@ -9,7 +9,7 @@ public class LoginUsuario {
     @NotEmpty(message = "no puede estar vacío")
     @Size(min = 4, message = "debe tener al menos 4 caracteres")
     @Column(nullable = false, unique = true)
-    private String usuario;
+    private String nombreUsuario;
 
     @NotEmpty(message = "no puede estar vacío")
     @Size(min = 6, message = "debe tener al menos 6 caracteres")
@@ -18,17 +18,17 @@ public class LoginUsuario {
     public LoginUsuario() {
     }
 
-    public LoginUsuario(String usuario, String password) {
-        this.usuario = usuario;
+    public LoginUsuario(String nombreUsuario, String password) {
+        this.nombreUsuario = nombreUsuario;
         this.password = password;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getPassword() {

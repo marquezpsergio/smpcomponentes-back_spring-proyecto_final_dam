@@ -29,14 +29,14 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     @Transactional(readOnly = true)
-    public Usuario findByUsuario(String usuario) {
-        return usuarioDao.findByUsuario(usuario);
+    public Usuario findByNombreUsuario(String usuario) {
+        return usuarioDao.findByNombreUsuario(usuario);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public boolean existsByUsuario(String usuario) {
-        return usuarioDao.existsByUsuario(usuario) > 0;
+    public boolean existsByNombreUsuario(String user) {
+        return usuarioDao.existsByNombreUsuario(user) > 0;
     }
 
     @Override
