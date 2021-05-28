@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -70,6 +71,7 @@ public class LineaOrdenadorRestController {
 
     @PutMapping("/lineas-ordenadores/{id}")
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasRole('ADMIN')")
     public LineaOrdenador update(@RequestBody LineaOrdenador lineaOrdenador, @PathVariable Integer id) {
 
         return lineaOrdenadorService.save(lineaOrdenador);
@@ -77,6 +79,7 @@ public class LineaOrdenadorRestController {
 
     @DeleteMapping("/lineas-ordenadores/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable Integer id) {
         lineaOrdenadorService.delete(id);
     }

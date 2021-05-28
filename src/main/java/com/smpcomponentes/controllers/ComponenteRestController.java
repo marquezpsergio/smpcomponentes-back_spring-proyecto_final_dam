@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -62,6 +63,7 @@ public class ComponenteRestController {
     }
 
     @PostMapping("/componentes")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> create(@Valid @RequestBody Componente componente, BindingResult result) {
 
         Componente componenteNew;
@@ -92,6 +94,7 @@ public class ComponenteRestController {
     }
 
     @PutMapping("/componentes/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> update(@Valid @RequestBody Componente componente, BindingResult result, @PathVariable Integer id) {
 
         Componente componenteActual = componenteService.findById(id);
@@ -129,6 +132,7 @@ public class ComponenteRestController {
     }
 
     @DeleteMapping("/componentes/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Integer id) {
         Map<String, Object> response = new HashMap<>();
 

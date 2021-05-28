@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -84,12 +85,14 @@ public class OrdenadorRestController {
 
     @PutMapping("/ordenadores/{id}")
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasRole('ADMIN')")
     public Ordenador update(@RequestBody Ordenador ordenador, @PathVariable Integer id) {
         return ordenadorService.save(ordenador);
     }
 
     @DeleteMapping("/ordenadores/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable Integer id) {
         ordenadorService.delete(id);
     }

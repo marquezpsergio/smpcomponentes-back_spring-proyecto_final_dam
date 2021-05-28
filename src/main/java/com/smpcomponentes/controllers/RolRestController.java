@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -49,18 +50,21 @@ public class RolRestController {
 
     @PostMapping("/roles")
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasRole('ADMIN')")
     public Rol create(@RequestBody Rol rol) {
         return rolService.save(rol);
     }
 
     @PutMapping("/roles/{id}")
     @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("hasRole('ADMIN')")
     public Rol update(@RequestBody Rol rol, @PathVariable Integer id) {
         return rolService.save(rol);
     }
 
     @DeleteMapping("/roles/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PreAuthorize("hasRole('ADMIN')")
     public void delete(@PathVariable Integer id) {
         rolService.delete(id);
     }
