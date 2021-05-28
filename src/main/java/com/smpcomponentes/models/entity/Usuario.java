@@ -22,7 +22,7 @@ public class Usuario implements Serializable {
 
     @NotEmpty(message = "no puede estar vacío")
     @Size(min = 4, message = "debe tener al menos 4 caracteres")
-    @Column(nullable = false, unique = true)
+    @Column(name = "nombre_usuario", nullable = false, unique = true)
     private String nombreUsuario;
 
     @NotEmpty(message = "no puede estar vacío")

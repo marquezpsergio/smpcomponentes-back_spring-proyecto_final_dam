@@ -19,7 +19,7 @@ public class Ordenador implements Serializable {
 
     @NotEmpty(message = "no puede estar vacío")
     @ManyToOne(fetch = FetchType.EAGER)
-    private Usuario nombreUsuario;
+    private Usuario usuario;
 
     @NotEmpty(message = "no puede estar vacío")
     @Min(value = 0, message = "debe ser como mínimo 0")
@@ -38,10 +38,10 @@ public class Ordenador implements Serializable {
         lineasOrdenador = new ArrayList<>();
     }
 
-    public Ordenador(Integer id, Usuario nombreUsuario, Double precioTotal) {
+    public Ordenador(Integer id, Usuario usuario, Double precioTotal) {
         lineasOrdenador = new ArrayList<>();
         this.id = id;
-        this.nombreUsuario = nombreUsuario;
+        this.usuario = usuario;
         this.precioTotal = precioTotal;
     }
 
@@ -58,12 +58,12 @@ public class Ordenador implements Serializable {
         this.id = id;
     }
 
-    public Usuario getNombreUsuario() {
-        return nombreUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setNombreUsuario(Usuario nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Double getPrecioTotal() {
