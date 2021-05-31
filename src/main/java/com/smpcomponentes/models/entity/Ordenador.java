@@ -1,5 +1,7 @@
 package com.smpcomponentes.models.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -31,7 +33,8 @@ public class Ordenador implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaCompra;
 
-    @OneToMany(mappedBy = "ordenador")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "ordenador", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<LineaOrdenador> lineasOrdenador;
 
     public Ordenador() {
@@ -43,6 +46,13 @@ public class Ordenador implements Serializable {
         this.id = id;
         this.usuario = usuario;
         this.precioTotal = precioTotal;
+    }
+
+    public Ordenador(Usuario usuario, Double precioTotal, Date fechaCompra, List<LineaOrdenador> lineasOrdenador) {
+        this.usuario = usuario;
+        this.precioTotal = precioTotal;
+        this.fechaCompra = fechaCompra;
+        this.lineasOrdenador = lineasOrdenador;
     }
 
     @PrePersist

@@ -71,7 +71,6 @@ public class LineaOrdenadorRestController {
 
     @PutMapping("/lineas-ordenadores/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasRole('ADMIN')")
     public LineaOrdenador update(@RequestBody LineaOrdenador lineaOrdenador, @PathVariable Integer id) {
 
         return lineaOrdenadorService.save(lineaOrdenador);

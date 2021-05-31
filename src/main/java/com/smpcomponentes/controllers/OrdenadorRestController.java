@@ -83,7 +83,6 @@ public class OrdenadorRestController {
 
     @PutMapping("/ordenadores/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasRole('ADMIN')")
     public Ordenador update(@RequestBody Ordenador ordenador, @PathVariable Integer id) {
         return ordenadorService.save(ordenador);
     }
