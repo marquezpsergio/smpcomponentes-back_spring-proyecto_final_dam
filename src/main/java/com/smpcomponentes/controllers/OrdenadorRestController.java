@@ -53,6 +53,11 @@ public class OrdenadorRestController {
         return new ResponseEntity<>(ordenador, HttpStatus.OK);
     }
 
+    @GetMapping("/ordenadores/usuarios/{usuarioId}")
+    public List<Ordenador> showOrdenadorByUsuarioId(@PathVariable Integer usuarioId) {
+        return ordenadorService.findByUsuarioId(usuarioId);
+    }
+
     @PostMapping("/ordenadores")
     public ResponseEntity<?> create(@Valid @RequestBody Ordenador ordenador, BindingResult result) {
 

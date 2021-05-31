@@ -12,6 +12,8 @@ public interface IOrdenadorService {
 
     Ordenador findById(Integer id);
 
+    List<Ordenador> findByUsuarioId(Integer usuarioId);
+
     Ordenador save(Ordenador ordenador);
 
     void delete(Integer id);
