@@ -22,6 +22,11 @@ public class FabricanteRestController {
         return fabricanteService.findAll();
     }
 
+    @GetMapping("/fabricantes-componentes")
+    public List<Fabricante> indexComps() {
+        return fabricanteService.findAllWithComponentes();
+    }
+
     @GetMapping("/fabricantes/{id}")
     public Fabricante show(@PathVariable Integer id) {
         return fabricanteService.findById(id);

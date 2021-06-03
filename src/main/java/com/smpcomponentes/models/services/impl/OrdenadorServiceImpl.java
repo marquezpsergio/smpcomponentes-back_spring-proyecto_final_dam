@@ -33,6 +33,11 @@ public class OrdenadorServiceImpl implements IOrdenadorService {
     }
 
     @Override
+    public List<Ordenador> findByUsuarioId(Integer usuarioId) {
+        return ordenadorDao.findByUsuarioId(usuarioId);
+    }
+
+    @Override
     public Ordenador save(Ordenador ordenador) {
         return ordenadorDao.save(ordenador);
     }

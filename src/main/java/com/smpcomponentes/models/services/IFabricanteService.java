@@ -8,6 +8,8 @@ public interface IFabricanteService {
 
     List<Fabricante> findAll();
 
+    List<Fabricante> findAllWithComponentes();
+
     Fabricante findById(Integer id);
 
     Fabricante save(Fabricante fabricante);

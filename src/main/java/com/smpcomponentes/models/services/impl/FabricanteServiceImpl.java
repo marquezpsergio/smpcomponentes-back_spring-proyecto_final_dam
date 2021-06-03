@@ -22,6 +22,12 @@ public class FabricanteServiceImpl implements IFabricanteService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<Fabricante> findAllWithComponentes() {
+        return fabricanteDao.findAllWithComponentes();
+    }
+
+    @Override
     public Fabricante findById(Integer id) {
         return fabricanteDao.findById(id).orElse(null);
     }
