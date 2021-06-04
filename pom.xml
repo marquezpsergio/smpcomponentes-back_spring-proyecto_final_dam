@@ -12,7 +12,7 @@
     <artifactId>smpcomponentes-backend</artifactId>
     <version>1.0.0</version>
     <name>smpcomponentes-backend</name>
-    <description>Demo project for Spring Boot</description>
+    <description>SMPComponentes</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -70,8 +70,6 @@
             <artifactId>jjwt</artifactId>
             <version>0.9.1</version>
         </dependency>
-
-
     </dependencies>
 
     <build>
